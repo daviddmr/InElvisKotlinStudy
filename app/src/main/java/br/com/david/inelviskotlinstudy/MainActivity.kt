@@ -17,8 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        cars.addAll(Mock().generateCar(resources))
+        cars.addAll(
+                savedInstanceState?.getParcelableArrayList(Car.CARS)
+                        ?: Mock().generateCar(resources)
+        )
         initRecyclerView()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putParcelableArrayList(Car.Companion.CARS, cars)
+        super.onSaveInstanceState(outState)
     }
 
     fun initRecyclerView() {

@@ -13,7 +13,7 @@ class Car(
         val price: Float,
         val accessories: List<Accessory>,
         val image: Bitmap) : Parcelable {
-    
+
     fun getAccessoriesFormatted(): String {
         val accessoriesStr = StringBuilder()
 
@@ -49,6 +49,7 @@ class Car(
 
     companion object {
         @JvmField
+        val CARS = "cars"
         val CREATOR: Parcelable.Creator<Car> = object : Parcelable.Creator<Car> {
             override fun createFromParcel(source: Parcel): Car = Car(source)
             override fun newArray(size: Int): Array<Car?> = arrayOfNulls(size)
