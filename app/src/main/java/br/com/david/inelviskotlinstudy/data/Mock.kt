@@ -28,7 +28,7 @@ class Mock {
         while (accessories.size < randIndex) {
             val aux = generateAccessory()
 
-            if (!inAccessories(aux, accessories)) {
+            if (aux !in accessories) {
                 accessories.add(aux)
             }
         }
@@ -42,13 +42,6 @@ class Mock {
         val randIndex = Random().nextInt(4)
 
         return Accessory(names[randIndex], prices[randIndex])
-    }
-
-    private fun inAccessories(accessory: Accessory, accessories: List<Accessory>): Boolean {
-        for (aux in accessories)
-            if (aux.name == accessory.name)
-                return true
-        return false
     }
 
     private fun generateBitmap(resources: Resources, imageRes: Int): Bitmap {
