@@ -1,6 +1,7 @@
 package br.com.david.inelviskotlinstudy.domain
 
 import android.graphics.Bitmap
+import br.com.david.inelviskotlinstudy.getPriceHumam
 
 class Car(
         val model: String,
@@ -15,7 +16,7 @@ class Car(
         val accessoriesStr = StringBuilder()
 
         for (accessory in accessories) {
-            accessoriesStr.append("${accessory.name} (${accessory.price}), ")
+            accessoriesStr.append("${accessory.name} (${accessory.price.getPriceHumam()}), ")
         }
 
         //First remove all blank spaces on final of the string, then remove all commas (if exist) on final of the string

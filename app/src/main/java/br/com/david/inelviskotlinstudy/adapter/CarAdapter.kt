@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import br.com.david.inelviskotlinstudy.R
+import br.com.david.inelviskotlinstudy.bold
 import br.com.david.inelviskotlinstudy.domain.Car
+import br.com.david.inelviskotlinstudy.getPriceHumam
 
 class CarAdapter(
         private val context: Context,
@@ -53,11 +55,11 @@ class CarAdapter(
             ivLogo.setImageResource(car.brand.logo)
             val brandStr = "${car.brand.name} - ${car.year}"
             tvBrand.text = brandStr
-            val motorStr = "Motor: ${car.motor.model} (${car.motor.cylinders}) - ${car.motor.brand}"
+            val motorStr = "Motor: ".bold().append("${car.motor.model} (${car.motor.cylinders}) - ${car.motor.brand}")
             tvMotor.text = motorStr
-            val accessoriesStr = "Acessórios: ${car.getAccessoriesFormatted()}"
+            val accessoriesStr = "Acessórios: ".bold().append(car.getAccessoriesFormatted())
             tvAccessories.text = accessoriesStr
-            tvPrice.text = car.price.toString()
+            tvPrice.text = car.price.getPriceHumam()
         }
     }
 }
