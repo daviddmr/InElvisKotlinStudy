@@ -7,7 +7,7 @@ class Motor(
         val model: String,
         val cylinders: Int,
         val brand: String) : Parcelable {
-    
+
     constructor(source: Parcel) : this(
             source.readString(),
             source.readInt(),
