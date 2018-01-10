@@ -1,6 +1,6 @@
 package br.com.david.inelviskotlinstudy.domain
 
-class Accessory(
+data class Accessory(
         val name: String,
         val price: Float
 )
