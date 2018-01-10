@@ -11,6 +11,7 @@ import br.com.david.inelviskotlinstudy.domain.Motor
 import java.util.*
 
 class Mock {
+
     private fun generateMotor(): Motor {
         val models = arrayOf("V-Tec", "Rocan", "Zar-T")
         val cylinders = arrayOf(4, 4, 8)
@@ -18,14 +19,6 @@ class Mock {
         val randIndex = Random().nextInt(3)
 
         return Motor(models[randIndex], cylinders[randIndex], brands[randIndex])
-    }
-
-    private fun generateAccessory(): Accessory {
-        val names = arrayOf("Teto solar", "Multimídia", "Aro 21 (Sport)", "Bancos de couro")
-        val prices = arrayOf(2500f, 5600f, 8000f, 980f)
-        val randIndex = Random().nextInt(4)
-
-        return Accessory(names[randIndex], prices[randIndex])
     }
 
     private fun generateAccessoriesList(): List<Accessory> {
@@ -43,13 +36,20 @@ class Mock {
         return accessories
     }
 
+    private fun generateAccessory(): Accessory {
+        val names = arrayOf("Teto solar", "Multimídia", "Aro 21 (Sport)", "Bancos de couro")
+        val prices = arrayOf(2500f, 5600f, 8000f, 980f)
+        val randIndex = Random().nextInt(4)
+
+        return Accessory(names[randIndex], prices[randIndex])
+    }
+
     private fun inAccessories(accessory: Accessory, accessories: List<Accessory>): Boolean {
         for (aux in accessories)
             if (aux.name == accessory.name)
                 return true
         return false
     }
-
 
     private fun generateBitmap(resources: Resources, imageRes: Int): Bitmap {
         return BitmapFactory.decodeResource(resources, imageRes)
@@ -100,4 +100,5 @@ class Mock {
                         generateBitmap(resources, R.drawable.ford_taurus))
         )
     }
+
 }
